@@ -19,7 +19,6 @@ const inverse = (numbers, n = 0) => {
         throw new TypeError('Ошибка входных данных');
     }
     
-    let buf = numbers.slice(0);
-    return (n >= 0) ? [...numbers.splice(0,n), ...buf.splice(n).reverse()] :
-        [...numbers.splice(0, numbers.length + n).reverse(), ...numbers.splice(n)];
+    return (n >= 0) ? [...numbers.splice(0,n), ...numbers.reverse()] :
+        [...numbers.splice(0, numbers.length + n).reverse(), ...numbers];
 };

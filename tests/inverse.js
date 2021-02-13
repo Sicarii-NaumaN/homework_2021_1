@@ -34,7 +34,7 @@ QUnit.module('Тестируем функцию inverse', function () {
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -15), [ 1, 2, 3, 4, 5 ]);
 	});
 	
-	QUnit.test('Тест Наума на рандомные значения', function (assert) {
+	QUnit.test('Тест Наума на невалидные значения', function (assert) {
 		assert.throws(() => inverse(1), TypeError('Ошибка входных данных'));
 		assert.throws(() => inverse(1, 'error'), TypeError('Ошибка входных данных'));
 		assert.throws(() => inverse([3, 5, 8, 13, 21], 'error'), TypeError('Ошибка входных данных'));
