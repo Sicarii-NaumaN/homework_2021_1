@@ -33,10 +33,13 @@ QUnit.module('Тестируем функцию inverse', function () {
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -5), [ 1, 2, 3, 4, 5 ]);
 		assert.deepEqual(inverse([ 1, 2, 3, 4, 5 ], -15), [ 1, 2, 3, 4, 5 ]);
 	});
+	
 	QUnit.test('Тест Наума на рандомные значения', function (assert) {
-		assert.deepEqual(inverse([ 123, null, 'a', 4, 5 ], 0), [ 5, 4, 'a', null, 123 ]);
-		assert.deepEqual(inverse([ 'one', 2, 'three', 4, 'five', [[1,2,3],[4,5,6],[7,8,9]]], -1), ['five', 4, 'three', 2, 'one', [[1,2,3],[4,5,6],[7,8,9]]]);
-		assert.deepEqual(inverse([ [[],['hello', 'world', '!'],[]], [[true, true],[undefined],[undefined]], [[],[],[]] ], 3),
-		[ [[],['hello', 'world', '!'],[]], [[true, true],[undefined],[undefined]], [[],[],[]] ] );
+		assert.throws(() => inverse(1), TypeError);
+		assert.throws(() => inverse(1, 'a'), TypeError);
+		assert.throws(() => inverse([3, 5, 8, 13, 21], 'error'), TypeError);
+		assert.throws(() => inverse(), TypeError);
+		assert.throws(() => inverse([3, 5, 8, 13, 21], null), TypeError);
+		assert.throws(() => inverse(null), TypeError);
 	});
 });
