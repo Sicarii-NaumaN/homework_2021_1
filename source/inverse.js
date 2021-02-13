@@ -13,6 +13,7 @@
  * 
  * @returns {numbers} - возвращается развернутый/частично развернутый массив
  */
+
 const inverse = (numbers, n = 0) => {
     if (!Number.isInteger(n) || !Array.isArray(numbers)) {
         throw new TypeError('Ошибка входных данных');

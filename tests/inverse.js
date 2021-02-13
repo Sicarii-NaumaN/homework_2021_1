@@ -35,11 +35,12 @@ QUnit.module('Тестируем функцию inverse', function () {
 	});
 	
 	QUnit.test('Тест Наума на рандомные значения', function (assert) {
-		assert.throws(() => inverse(1), TypeError);
-		assert.throws(() => inverse(1, 'a'), TypeError);
-		assert.throws(() => inverse([3, 5, 8, 13, 21], 'error'), TypeError);
-		assert.throws(() => inverse(), TypeError);
-		assert.throws(() => inverse([3, 5, 8, 13, 21], null), TypeError);
-		assert.throws(() => inverse(null), TypeError);
+		assert.throws(() => inverse(1), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse(1, 'error'), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse([3, 5, 8, 13, 21], 'error'), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse(), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse([3, 5, 8, 13, 21], null), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse(null), TypeError('Ошибка входных данных'));
+		assert.throws(() => inverse(1, 1), TypeError('Ошибка входных данных'));
 	});
 });
