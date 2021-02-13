@@ -14,7 +14,7 @@
  * @returns {numbers} - возвращается развернутый/частично развернутый массив
  */
 const inverse = (numbers, n = 0) => {
-    if (!Number.isInteger(n))  {throw new TypeError('Ошибка входных данных');}
+    if (!Number.isInteger(n) || !Array.isArray(numbers))  {throw new TypeError('Ошибка входных данных');}
     return (n >= 0) ? numbers.slice(0,n).concat(numbers.slice(n).reverse()) :
         numbers.slice(0,numbers.length + n).reverse().concat(numbers.slice(n));
 };
